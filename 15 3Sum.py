@@ -1,5 +1,6 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
         dict2 = {}
         result = []
         for i in range(0,len(nums)):
@@ -10,13 +11,8 @@ class Solution:
                 if tmp in dict2:
                     if dict2[tmp] != i and dict2[tmp] != j and dict2[tmp] > j:
                         res = [nums[i],nums[j],tmp]
-                        result.append(res)
-        endResult = []
-        for i in result:
-            i.sort()
-        for i in result:
-            if i not in endResult:
-                endResult.append(i)
-        return endResult
+                        if res not in result:
+                            result.append(res)
+        return result
             
         
