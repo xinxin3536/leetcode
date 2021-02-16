@@ -37,3 +37,14 @@ class Solution:
                 r = mid - 1
         res[1] = r
         return res
+
+#网上 bisect方法
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        if not nums: return [-1,-1]
+        left = bisect.bisect_left(nums, target)
+        right = bisect.bisect(nums, target)
+        if left != len(nums) and nums[left] == target:
+            return [left, right-1]
+        else:
+            return [-1,-1]
